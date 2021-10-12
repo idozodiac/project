@@ -10,6 +10,7 @@ base_font = pygame.font.Font(None,32)
 
 while True:
     x = ser.readline()
+    y = float(x)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -19,13 +20,14 @@ while True:
     text_surface = base_font.render(x, True, (255,255,255))
     screen.blit(text_surface,(0,0))
 
-    
+    if y < 6:
+        screen.fill((100,100,100))
+        text_surface = base_font.render(x, True, (255,255,255))
+        screen.blit(text_surface,(0,0))
+
 
     pygame.display.flip()
     clock.tick(60)
-
-    
-
 
     
     
